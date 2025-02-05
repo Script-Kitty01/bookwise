@@ -8,11 +8,11 @@ const BookOverview = ({
   author,
   genre,
   rating,
-  total_copies,
-  available_copies,
+  totalCopies,
+  availableCopies,
   description,
-  color,
-  cover,
+  coverUrl,
+  coverColor,
 }: Book) => {
   return (
     <section className="book-overview">
@@ -33,10 +33,10 @@ const BookOverview = ({
         </div>
         <div className="book-copies">
           <p>
-            Total Books: <span>{total_copies}</span>
+            Total Books: <span>{totalCopies}</span>
           </p>
           <p>
-            Available Books: <span>{available_copies}</span>
+            Available Books: <span>{availableCopies}</span>
           </p>
         </div>
         <p className="book-description">{description}</p>
@@ -51,13 +51,17 @@ const BookOverview = ({
           <BookCover
             variant="wide"
             className="z-10"
-            coverColor={color}
-            coverImage={cover}
+            coverColor={coverColor}
+            coverImage={coverUrl}
           />
 
           {/* Background Book Cover (Shadow) */}
           <div className="absolute left-12 top-6 rotate-6 opacity-50">
-            <BookCover variant="wide" coverColor={color} coverImage={cover} />
+            <BookCover
+              variant="wide"
+              coverColor={coverColor}
+              coverImage={coverColor}
+            />
           </div>
         </div>
       </div>
