@@ -11,7 +11,7 @@ import { eq } from "drizzle-orm";
 const layout = async ({ children }: { children: ReactNode }) => {
   const session = await auth();
 
-  if (!session?.user?.id) redirect("sign-in");
+  if (!session?.user?.id) redirect("/sign-in");
   const isAdmin = await db
     .select({ isAdmin: users.role })
     .from(users)
@@ -23,13 +23,9 @@ const layout = async ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <main className="flex min-h-screen w-full flex-row">
-        <p>
-          <Sidebar session={session} />
-        </p>
+        <Sidebar session={session} />
         <div className="admin-container">
-          <p>
-            <Header session={session} />
-          </p>
+          <Header session={session} />
           {children}
         </div>
       </main>

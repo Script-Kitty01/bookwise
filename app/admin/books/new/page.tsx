@@ -11,9 +11,7 @@ const page = () => {
         <Link href="/admin/books">go back</Link>
       </Button>
       <section className="w-full max-w-2xl">
-        <p>
-          <BookForm />
-        </p>
+        <BookForm />
       </section>
     </>
   );

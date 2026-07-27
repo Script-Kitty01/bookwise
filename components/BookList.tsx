@@ -1,4 +1,5 @@
 import React from "react";
+import { cn } from "@/lib/utils";
 import BookCard from "@/components/BookCard";
 
 interface Props {
@@ -8,11 +9,14 @@ interface Props {
 }
 
 const BookList = ({ title, books, containerClassName }: Props) => {
-  if (books.length < 2) return;
+  if (books.length === 0) return null;
 
   return (
-    <section className={containerClassName}>
-      <h2 className="font-bebas-neue text-4xl text-light-100">{title}</h2>
+    <section className={cn("animate-slide-up", containerClassName)}>
+      <div className="flex items-center gap-4 mb-2">
+        <h2 className="section-heading">{title}</h2>
+        <div className="h-px flex-1 bg-gradient-to-r from-white/10 to-transparent" />
+      </div>
 
       <ul className="book-list">
         {books.map((book) => (

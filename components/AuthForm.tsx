@@ -71,19 +71,22 @@ const AuthForm = <T extends FieldValues>({
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <h1 className="text-2xl font-semibold text-white">
-        {isSignIn ? "Welcome back to BookWise" : "Create your library account"}
-      </h1>
-      <p className="text-light-100">
-        {isSignIn
-          ? "Access the vast collection of resources, and stay updated"
-          : "Please complete all fields and upload a valid university ID to gain access to the library"}
-      </p>
+    <div className="flex flex-col gap-6">
+      <div>
+        <h2 className="text-2xl font-bold text-white">
+          {isSignIn ? "Welcome back" : "Create your account"}
+        </h2>
+        <p className="mt-1.5 text-sm text-light-100/60">
+          {isSignIn
+            ? "Access the vast collection of resources, and stay updated"
+            : "Complete all fields and upload a valid university ID to gain access"}
+        </p>
+      </div>
+
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleSubmit)}
-          className="w-full space-y-6"
+          className="w-full space-y-5"
         >
           {Object.keys(defaultValues).map((field) => (
             <FormField
@@ -92,7 +95,7 @@ const AuthForm = <T extends FieldValues>({
               name={field as Path<T>}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="capitalize">
+                  <FormLabel className="text-sm font-medium text-light-100/80 capitalize">
                     {FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}
                   </FormLabel>
                   <FormControl>
@@ -128,12 +131,11 @@ const AuthForm = <T extends FieldValues>({
         </form>
       </Form>
 
-      <p className="text-center text-base font-medium">
+      <p className="text-center text-sm text-light-100/60">
         {isSignIn ? "New to BookWise? " : "Already have an account? "}
-
         <Link
           href={isSignIn ? "/sign-up" : "/sign-in"}
-          className="font-bold text-primary"
+          className="font-semibold text-primary hover:text-primary/80 transition-colors"
         >
           {isSignIn ? "Create an account" : "Sign in"}
         </Link>

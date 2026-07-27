@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 import Header from "@/components/Header";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { after } from "next/server";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { eq } from "drizzle-orm";
@@ -12,30 +11,33 @@ const Layout = async ({ children }: { children: ReactNode }) => {
 
   if (!session) redirect("/sign-in");
 
-  after(async () => {
-    if (!session?.user?.id) return;
+  // Update last activity date (fire-and-forget, non-blocking)
+  if (session?.user?.id) {
+    const today = new Date().toISOString().slice(0, 10);
 
-    const user = await db
+    const [user] = await db
       .select()
       .from(users)
-      .where(eq(users.id, session?.user?.id))
+      .where(eq(users.id, session.user.id))
       .limit(1);
 
-    if (user[0].lastActivityDate === new Date().toISOString().slice(0, 10))
-      return;
-
-    await db
-      .update(users)
-      .set({ lastActivityDate: new Date().toISOString().slice(0, 10) })
-      .where(eq(users.id, session?.user?.id));
-  });
+    if (user && user.lastActivityDate !== today) {
+      db.update(users)
+        .set({ lastActivityDate: today })
+        .where(eq(users.id, session.user.id))
+        .execute()
+        .catch(() => {
+          // Silently ignore — non-critical update
+        });
+    }
+  }
 
   return (
     <main className="root-container">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Header session={session} />
 
-        <div className="mt-20 pb-20">{children}</div>
+        <div className="mt-6 pb-20">{children}</div>
       </div>
     </main>
   );

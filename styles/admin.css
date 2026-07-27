@@ -4,11 +4,11 @@
 
 @layer components {
   .admin-container {
-    @apply flex w-[calc(100%-264px)] flex-1 flex-col bg-light-300 p-5 xs:p-10;
+    @apply flex w-[calc(100%-280px)] flex-1 flex-col bg-dark-500 p-5 xs:p-10;
   }
 
   .back-btn {
-    @apply mb-10 w-fit border border-light-300 bg-white text-xs font-medium text-dark-200 hover:bg-light-300 !important;
+    @apply mb-10 w-fit border border-white/10 bg-white/5 text-sm font-medium text-white hover:bg-white/10 transition-all duration-300 rounded-xl !important;
   }
 
   /* Confirmation Dialog */
@@ -17,11 +17,11 @@
   }
 
   .confirm-approve {
-    @apply bg-green-100 text-green-800 hover:bg-green-100/70 !important;
+    @apply bg-green-500/10 text-green-400 hover:bg-green-500/20 transition-all duration-300 !important;
   }
 
   .confirm-reject {
-    @apply bg-red-100 text-red-800 hover:bg-red-100/70 !important;
+    @apply bg-red-500/10 text-red-400 hover:bg-red-500/20 transition-all duration-300 !important;
   }
 
   .confirm-content {
@@ -37,38 +37,38 @@
   }
 
   .confirm-btn {
-    @apply w-full min-h-14 rounded-xl font-bold text-base text-light-800 !important;
+    @apply w-full min-h-14 rounded-xl font-bold text-base text-white !important;
   }
 
   /* Book Form */
   .book-form_input {
-    @apply min-h-14 border border-gray-100 bg-light-600 p-4 text-base font-semibold placeholder:font-normal placeholder:text-slate-500 !important;
+    @apply min-h-14 border border-white/10 bg-white/5 p-4 text-base font-semibold placeholder:font-normal placeholder:text-light-100/40 text-white rounded-xl focus:border-primary-admin/50 focus:ring-2 focus:ring-primary-admin/10 transition-all duration-300 !important;
   }
 
   .book-form_btn {
-    @apply min-h-14 w-full bg-primary-admin hover:bg-primary-admin/95 !important;
+    @apply min-h-14 w-full bg-primary-admin hover:bg-primary-admin/90 shadow-lg shadow-primary-admin/20 transition-all duration-300 rounded-xl !important;
   }
 
   /* Home Page */
   .view-btn {
-    @apply bg-light-300 rounded-md text-primary-admin font-semibold hover:bg-light-300/80 shadow-none !important;
+    @apply bg-white/5 border border-white/5 rounded-lg text-white font-medium hover:bg-white/10 transition-all duration-300 shadow-none !important;
   }
 
   .add-new-book_btn {
-    @apply mt-7 mb-3 bg-light-300 py-4 px-3 flex flex-row items-center rounded-xl gap-4;
+    @apply mt-7 mb-3 bg-white/5 border border-white/5 py-5 px-4 flex flex-row items-center rounded-2xl gap-4 hover:bg-white/10 hover:border-primary-admin/30 transition-all duration-300;
   }
 
   .add-new-book_btn div:first-child {
-    @apply size-12 bg-white rounded-full flex justify-center items-center;
+    @apply size-12 bg-primary-admin/10 rounded-xl flex justify-center items-center;
   }
 
   .add-new-book_btn p:first-child {
-    @apply font-semibold text-lg text-dark-400;
+    @apply font-semibold text-lg text-white;
   }
 
   /* Statistics */
   .stat {
-    @apply bg-white rounded-xl p-5 space-y-5 flex-1;
+    @apply bg-white/5 border border-white/5 rounded-2xl p-6 space-y-5 flex-1 min-w-[200px] hover:bg-white/8 hover:border-white/10 transition-all duration-300;
   }
 
   .stat-info {
@@ -76,20 +76,20 @@
   }
 
   .stat-label {
-    @apply font-medium text-base text-light-500 whitespace-nowrap;
+    @apply font-medium text-sm text-light-100/60 whitespace-nowrap;
   }
 
   .stat-count {
-    @apply font-semibold text-3xl text-dark-400;
+    @apply font-bold text-4xl text-white tracking-tight;
   }
 
   /* Book Stripe */
   .book-stripe {
-    @apply flex flex-row gap-4 bg-light-300 p-4 rounded-lg;
+    @apply flex flex-row gap-4 bg-white/5 border border-white/5 p-4 rounded-xl hover:bg-white/8 transition-all duration-300;
   }
 
   .book-stripe .title {
-    @apply font-semibold text-base text-dark-400 line-clamp-1;
+    @apply font-semibold text-base text-white line-clamp-1;
   }
 
   .book-stripe .author {
@@ -97,15 +97,15 @@
   }
 
   .book-stripe .author p:first-child {
-    @apply text-light-500 text-sm line-clamp-1;
+    @apply text-light-100/50 text-sm line-clamp-1;
   }
 
   .book-stripe .author div {
-    @apply size-1 rounded-full bg-light-500;
+    @apply size-1 rounded-full bg-light-100/30;
   }
 
   .book-stripe .author p:last-child {
-    @apply text-light-500 text-sm;
+    @apply text-light-100/50 text-sm;
   }
 
   .book-stripe .user {
@@ -117,7 +117,7 @@
   }
 
   .book-stripe .user .avatar p {
-    @apply text-xs text-dark-200;
+    @apply text-xs text-light-100/60;
   }
 
   .book-stripe .borrow-date {
@@ -125,16 +125,16 @@
   }
 
   .book-stripe .borrow-date p {
-    @apply text-xs text-dark-200;
+    @apply text-xs text-light-100/60;
   }
 
   /* Color Picker */
   .color-picker {
-    @apply flex min-h-14 flex-row items-center gap-3 rounded-md border border-gray-100 bg-light-600 p-4 text-base font-semibold text-dark-400;
+    @apply flex min-h-14 flex-row items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-base font-semibold text-white;
   }
 
   .hex-input {
-    @apply h-full flex-1 bg-transparent font-ibm-plex-sans outline-none;
+    @apply h-full flex-1 bg-transparent font-ibm-plex-sans outline-none text-white;
   }
 
   .hex-color-picker {
@@ -143,7 +143,7 @@
 
   /* Error Fallback */
   .error-fallback {
-    @apply p-4 bg-red-100 text-red-700 rounded-md;
+    @apply p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl;
   }
 
   .error-fallback h2 {
@@ -157,46 +157,47 @@
 
   /* Search */
   .admin-search {
-    @apply flex border border-gray-100 min-h-14 items-center gap-1 rounded-md bg-light-600 px-4 lg:max-w-md w-full;
+    @apply flex border border-white/10 min-h-14 items-center gap-1 rounded-xl bg-white/5 px-4 lg:max-w-md w-full transition-all duration-300 focus-within:border-primary-admin/40;
   }
 
   .admin-search_input {
-    @apply w-full border-0 shadow-none bg-transparent outline-none focus:outline-none focus:ring-0 focus:border-0 !important;
+    @apply w-full border-0 shadow-none bg-transparent outline-none text-white placeholder:text-light-100/40 focus:outline-none focus:ring-0 focus:border-0 !important;
   }
 
   /* Sidebar */
   .admin-sidebar {
-    @apply sticky left-0 top-0 flex h-dvh flex-col justify-between bg-white px-5 pb-5 pt-10;
+    @apply sticky left-0 top-0 flex h-dvh w-[280px] flex-col justify-between bg-dark-400/50 backdrop-blur-xl border-r border-white/5 px-5 pb-5 pt-10;
   }
 
   .admin-sidebar .logo {
-    @apply flex flex-row items-center gap-2 border-b border-dashed border-primary-admin/20 pb-10 max-md:justify-center;
+    @apply flex flex-row items-center gap-3 border-b border-white/5 pb-10 max-md:justify-center;
   }
 
   .admin-sidebar .logo h1 {
-    @apply text-2xl font-semibold text-primary-admin max-md:hidden;
+    @apply text-2xl font-bold text-white max-md:hidden tracking-tight;
   }
 
   .admin-sidebar .link {
-    @apply flex flex-row items-center w-full gap-2 rounded-lg px-5 py-3.5 max-md:justify-center;
+    @apply flex flex-row items-center w-full gap-3 rounded-xl px-4 py-3 max-md:justify-center transition-all duration-300;
   }
 
   .admin-sidebar .link p {
-    @apply text-base font-medium max-md:hidden;
+    @apply text-sm font-medium max-md:hidden;
   }
 
   .admin-sidebar .user {
-    @apply my-8 flex w-full flex-row gap-2 rounded-full border border-light-400 px-6 py-2 shadow-sm max-md:px-2;
+    @apply my-8 flex w-full flex-row gap-3 rounded-xl border border-white/5 bg-white/5 px-4 py-3 max-md:px-2;
   }
 
   /* User Card */
   .user-card {
-    @apply w-40 bg-light-300 py-4 px-3 flex justify-center items-center flex-col rounded-xl text-center;
+    @apply w-40 bg-white/5 border border-white/5 py-4 px-3 flex justify-center items-center flex-col rounded-xl text-center hover:bg-white/10 transition-all duration-300;
   }
 
   .user-card .name {
-    @apply font-medium mt-3 text-dark-400 line-clamp-1 w-full break-words;
+    @apply font-medium mt-3 text-white line-clamp-1 w-full break-words;
   }
+}
 
   .user-card .email {
     @apply text-light-500 text-sm line-clamp-1 break-words w-full;
